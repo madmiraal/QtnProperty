@@ -1,5 +1,5 @@
 
-isEmpty(TOP_SRC_DIR):MESAGE(FATAL "TOP_SRC_DIR directory is not defined.")
+isEmpty(TOP_SRC_DIR):MESSAGE(FATAL "TOP_SRC_DIR directory is not defined.")
 
 macx:BIN_DIR = $$TOP_SRC_DIR/bin-osx
 win32:BIN_DIR = $$TOP_SRC_DIR/bin-win
