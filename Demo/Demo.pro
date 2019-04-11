@@ -42,12 +42,10 @@ INCLUDEPATH += $$TOP_SRC_DIR/PropertyWidget
 
 LIBS += -L$$BIN_DIR -lQtnPropertyCore -lQtnPropertyWidget
 
-unix:PRE_TARGETDEPS += $$BIN_DIR/libQtnPropertyCore.a $$BIN_DIR/libQtnPropertyWidget.a
-else:PRE_TARGETDEPS += $$BIN_DIR/QtnPropertyCore.lib  $$BIN_DIR/QtnPropertyWidget.lib
-
-win32 {
-} else:unix {
-    QMAKE_LFLAGS += -Wl,-rpath,\'\$$ORIGIN\'
+equals(QMAKE_EXTENSION_STATICLIB, a) {
+    PRE_TARGETDEPS += $$BIN_DIR/libQtnPropertyCore.a $$BIN_DIR/libQtnPropertyWidget.a
+} else {
+    PRE_TARGETDEPS += $$BIN_DIR/QtnPropertyCore.lib $$BIN_DIR/QtnPropertyWidget.lib
 }
 
 OTHER_FILES += \

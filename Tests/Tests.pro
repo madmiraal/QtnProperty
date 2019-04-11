@@ -27,9 +27,11 @@ PEG_SOURCES += PEG/test.pef \
 OTHER_FILES += $$PEG_SOURCES
 
 LIBS += -L$$BIN_DIR -lQtnPropertyCore
-win32 {
-} else:unix {
-    QMAKE_LFLAGS += -Wl,-rpath,\'\$$ORIGIN\'
+
+equals(QMAKE_EXTENSION_STATICLIB, a) {
+    PRE_TARGETDEPS += $$BIN_DIR/libQtnPropertyCore.a
+} else {
+    PRE_TARGETDEPS += $$BIN_DIR/QtnPropertyCore.lib
 }
 
 INCLUDEPATH += $$TOP_SRC_DIR/Core
