@@ -17,6 +17,7 @@
 #ifndef QTN_PROPERTY_DELEGATE_AUX_H
 #define QTN_PROPERTY_DELEGATE_AUX_H
 
+#include "PropertyBase.h"
 #include "../PropertyWidgetAPI.h"
 
 #include <functional>
