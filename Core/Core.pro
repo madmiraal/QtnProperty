@@ -3,14 +3,12 @@ include(../Config.pri)
 QT += quick
 QT += script
 CONFIG += staticlib
-CONFIG += qtn_unity_build
 
 TARGET = QtnPropertyCore
 TEMPLATE = lib
 VERSION = 1.0.0
 
-qtn_unity_build: SOURCES += QtnCoreUnity.cpp
-else: SOURCES += PropertyBase.cpp \
+SOURCES += PropertyBase.cpp \
     Property.cpp \
     PropertySet.cpp \
     Enum.cpp \
