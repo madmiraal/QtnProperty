@@ -6,10 +6,8 @@ VERSION = 1.1.0
 
 QT += core gui widgets script
 CONFIG += staticlib
-CONFIG += qtn_unity_build
 
-qtn_unity_build: SOURCES += QtnPropertyWidgetUnity.cpp
-else: SOURCES += PropertyWidget.cpp \
+SOURCES += PropertyWidget.cpp \
     PropertyView.cpp \
     Utils/InplaceEditing.cpp \
     Delegates/PropertyDelegateFactory.cpp \
