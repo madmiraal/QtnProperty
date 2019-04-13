@@ -1,12 +1,6 @@
 TEMPLATE   = subdirs
 SUBDIRS   += Core\
-             PEG\
-             Tests\
              PropertyWidget\
-             Demo
+             PEG\
 
-PEG.depends = Core
-Tests.depends = Core
 PropertyWidget.depends = Core
-Demo.depends = Core
-Demo.depends = PropertyWidget

@@ -1,11 +1,9 @@
 include(../Config.pri)
-PEG_TOOL = $$BIN_DIR/QtnPEG
-include(../PEG.pri)
-
-QT += core gui widgets script scripttools
 
 TARGET = QtnPropertyDemo
 TEMPLATE = app
+
+QT += widgets script scripttools
 
 SOURCES +=  main.cpp\
             MainWindow.cpp \
@@ -35,10 +33,11 @@ HEADERS  += MainWindow.h \
 FORMS    += MainWindow.ui \
             mydialog.ui
 
+include(../PEG.pri)
 PEG_SOURCES += Demo.pef
 
-INCLUDEPATH += $$TOP_SRC_DIR/Core
-INCLUDEPATH += $$TOP_SRC_DIR/PropertyWidget
+INCLUDEPATH += ../Core
+INCLUDEPATH += ../PropertyWidget
 
 LIBS += -L$$BIN_DIR -lQtnPropertyCore -lQtnPropertyWidget
 

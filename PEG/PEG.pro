@@ -2,13 +2,11 @@ include(../Config.pri)
 include(Bison.pri)
 include(Flex.pri)
 
-QT += core
 QT -= gui
 
 TARGET = QtnPEG
 
-CONFIG += console
-CONFIG -= app_bundle
+CONFIG += cmdline
 
 TEMPLATE = app
 VERSION = 1.0.0
