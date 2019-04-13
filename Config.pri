@@ -1,14 +1,8 @@
+macx:BIN_DIR = $$PWD/bin-osx
+win32:BIN_DIR = $$PWD/bin-win
+linux:BIN_DIR = $$PWD/bin-linux
 
-isEmpty(TOP_SRC_DIR):MESSAGE(FATAL "TOP_SRC_DIR directory is not defined.")
-
-macx:BIN_DIR = $$TOP_SRC_DIR/bin-osx
-win32:BIN_DIR = $$TOP_SRC_DIR/bin-win
-linux:BIN_DIR = $$TOP_SRC_DIR/bin-linux
-
-isEmpty(BIN_DIR):MESSAGE(CRITICAL, "Only mac/win32/linux supported")
+isEmpty(BIN_DIR): error("Only mac/win32/linux supported")
 else:DESTDIR = $$BIN_DIR
-
-debug: DBG = dgb-
-else: DBG = rel-
 
 CONFIG += c++11

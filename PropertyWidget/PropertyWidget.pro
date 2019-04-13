@@ -77,5 +77,4 @@ HEADERS += PropertyWidgetAPI.h \
     Delegates/Utils/PropertyDelegateGeoPoint.h
 
 LIBS += -L$$BIN_DIR -lQtnPropertyCore
-INCLUDEPATH += $$TOP_SRC_DIR/Core
-
+INCLUDEPATH += ../Core
