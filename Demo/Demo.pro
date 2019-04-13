@@ -1,9 +1,7 @@
-include(../Config.pri)
-
 TARGET = QtnPropertyDemo
 TEMPLATE = app
 
-QT += widgets script scripttools
+QT += widgets scripttools
 
 SOURCES +=  main.cpp\
             MainWindow.cpp \
@@ -33,19 +31,10 @@ HEADERS  += MainWindow.h \
 FORMS    += MainWindow.ui \
             mydialog.ui
 
+include(../QtnProperty.pri)
+
 include(../PEG.pri)
 PEG_SOURCES += Demo.pef
-
-INCLUDEPATH += ../Core
-INCLUDEPATH += ../PropertyWidget
-
-LIBS += -L$$BIN_DIR -lQtnPropertyCore -lQtnPropertyWidget
-
-equals(QMAKE_EXTENSION_STATICLIB, a) {
-    PRE_TARGETDEPS += $$BIN_DIR/libQtnPropertyCore.a $$BIN_DIR/libQtnPropertyWidget.a
-} else {
-    PRE_TARGETDEPS += $$BIN_DIR/QtnPropertyCore.lib $$BIN_DIR/QtnPropertyWidget.lib
-}
 
 OTHER_FILES += \
     Demo.pef

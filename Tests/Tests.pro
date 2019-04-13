@@ -34,4 +34,4 @@ equals(QMAKE_EXTENSION_STATICLIB, a) {
     PRE_TARGETDEPS += $$BIN_DIR/QtnPropertyCore.lib
 }
 
-INCLUDEPATH += $$TOP_SRC_DIR/Core
+INCLUDEPATH += ../Core

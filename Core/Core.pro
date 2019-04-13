@@ -1,7 +1,6 @@
 include(../Config.pri)
 
-QT += quick
-QT += script
+CONFIG -= gui
 CONFIG += staticlib
 
 TARGET = QtnPropertyCore

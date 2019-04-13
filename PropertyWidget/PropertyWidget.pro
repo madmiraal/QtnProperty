@@ -4,7 +4,7 @@ TARGET = QtnPropertyWidget
 TEMPLATE = lib
 VERSION = 1.1.0
 
-QT += core gui widgets script
+QT += widgets
 CONFIG += staticlib
 
 SOURCES += PropertyWidget.cpp \
