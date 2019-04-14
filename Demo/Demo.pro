@@ -1,40 +1,43 @@
-TARGET = QtnPropertyDemo
+include(../QtnProperty.pri)
+include(../PEG.pri)
+
 TEMPLATE = app
+TARGET = QtnPropertyDemo
+DESTDIR = $$BIN_DIR
 
 QT += widgets scripttools
 
-SOURCES +=  main.cpp\
-            MainWindow.cpp \
-            mydialog.cpp \
-            AB/PropertyABColor.cpp \
-            AB/PropertyDelegateABColor.cpp \
-            Int/PropertyDelegateIntList.cpp \
-            Layer/PropertyLayer.cpp \
-            Layer/PropertyDelegateLayer.cpp \
-            PenWidth/PropertyPenWidth.cpp \
-            PenWidth/PropertyDelegatePenWidth.cpp \
-            Freq/PropertyFreq.cpp \
-            Freq/PropertyDelegateFreq.cpp
+HEADERS += \
+    MainWindow.h \
+    mydialog.h \
+    AB/PropertyABColor.h \
+    AB/PropertyDelegateABColor.h \
+    Freq/PropertyDelegateFreq.h \
+    Freq/PropertyFreq.h \
+    Int/PropertyDelegateIntList.h \
+    Layer/PropertyDelegateLayer.h \
+    Layer/PropertyLayer.h \
+    PenWidth/PropertyDelegatePenWidth.h \
+    PenWidth/PropertyPenWidth.h
 
-HEADERS  += MainWindow.h \
-            mydialog.h \
-            AB/PropertyABColor.h \
-            AB/PropertyDelegateABColor.h \
-            Int/PropertyDelegateIntList.h \
-            Layer/PropertyLayer.h \
-            Layer/PropertyDelegateLayer.h \
-            PenWidth/PropertyPenWidth.h \
-            PenWidth/PropertyDelegatePenWidth.h \
-            Freq/PropertyFreq.h \
-            Freq/PropertyDelegateFreq.h
+SOURCES += \
+    main.cpp\
+    MainWindow.cpp \
+    mydialog.cpp \
+    AB/PropertyABColor.cpp \
+    AB/PropertyDelegateABColor.cpp \
+    Freq/PropertyDelegateFreq.cpp \
+    Freq/PropertyFreq.cpp \
+    Int/PropertyDelegateIntList.cpp \
+    Layer/PropertyDelegateLayer.cpp \
+    Layer/PropertyLayer.cpp \
+    PenWidth/PropertyDelegatePenWidth.cpp \
+    PenWidth/PropertyPenWidth.cpp
 
-FORMS    += MainWindow.ui \
-            mydialog.ui
+FORMS += \
+    MainWindow.ui \
+    mydialog.ui
 
-include(../QtnProperty.pri)
-
-include(../PEG.pri)
 PEG_SOURCES += Demo.pef
 
-OTHER_FILES += \
-    Demo.pef
+OTHER_FILES += $$PEG_SOURCES

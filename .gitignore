@@ -48,8 +48,9 @@ compile_commands.json
 # QtCreator local machine specific files for imported projects
 *creator.user*
 
-#QtnProperty binary directories
-/bin-*
+#QtnProperty compile directories
+/bin
+/lib
 
 #Flex output files
 *.lexer.*

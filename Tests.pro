@@ -1,6 +1,7 @@
-TEMPLATE   = subdirs
+TEMPLATE = subdirs
 
-SUBDIRS   += Core\
-             Tests\
+SUBDIRS += \
+    Core \
+    Tests
 
 Tests.depends = Core
