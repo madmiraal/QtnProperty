@@ -5,7 +5,6 @@ TEMPLATE = lib
 DESTDIR = $$LIB_DIR
 VERSION = 1.1.0
 
-CONFIG += staticlib
 QT += widgets
 
 INCLUDEPATH += ../Core

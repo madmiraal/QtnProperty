@@ -6,7 +6,6 @@ DESTDIR = $$LIB_DIR
 VERSION = 1.1.0
 
 CONFIG -= gui
-CONFIG += staticlib
 
 HEADERS += \
     CoreAPI.h\
