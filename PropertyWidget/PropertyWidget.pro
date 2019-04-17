@@ -10,9 +10,9 @@ QT += widgets
 INCLUDEPATH += ../Core
 LIBS += -L$$LIB_DIR -lQtnPropertyCore
 equals(QMAKE_EXTENSION_STATICLIB, a) {
-    PRE_TARGETDEPS += $$LIB_DIR/libQtnPropertyCore.a
+    PRE_TARGETDEPS += $$LIB_DIR/libQtnPropertyCore.$$QMAKE_EXTENSION_SHLIB
 } else {
-    PRE_TARGETDEPS += $$LIB_DIR/QtnPropertyCore.lib
+    PRE_TARGETDEPS += $$LIB_DIR/QtnPropertyCore.$$QMAKE_EXTENSION_SHLIB
 }
 
 HEADERS += \
