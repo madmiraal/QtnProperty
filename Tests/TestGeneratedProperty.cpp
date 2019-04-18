@@ -75,52 +75,45 @@ void TestGeneratedProperty::testLoadSave()
         QtnPropertySetA p2;
 
         {
-            QtnPropertySet allProperties(nullptr);
-            allProperties.addChildProperty(&p, false);
-            allProperties.addChildProperty(&p2, false);
-
             QByteArray data;
+
+            QtnPropertySet savedProperties(nullptr);
+            savedProperties.addChildProperty(&p, false);
+            savedProperties.addChildProperty(&p2, false);
 
             {
                 QDataStream s(&data, QIODevice::WriteOnly);
-                s.setVersion(16);
-                QVERIFY(allProperties.save(s));
+                QVERIFY(savedProperties.save(s));
             }
 
-            //printf(data.toBase64());
-            QCOMPARE(data.toBase64(), QByteArray("GYQBAAAEmgABAAAAAAAAAAABAAAADRmEAQAABFAAAQAAAAAAAAAAAQAAAA4ZhAEAAAALAAEAAAAIAAAAAAAAAAAPGYQBAAAACwABAAAACAAAAAABAAAAEBmEAQAAAA4AAQAAAAgAAAAAAAAAAAAAABEZhAEAAAAOAAEAAAAIAAAAAAAAAAwAAAASGYQBAAAADgABAAAACAAAAAAAAAAAAAAAExmEAQAAAA4AAQAAAAgAAAAAAAAACQAAABQZhAEAAAASAAEAAAAIAAAAAAAAAAAAAAAAAAAAFRmEAQAAABIAAQAAAAgAAAAAP8mZmaAAAAAAAAAWGYQBAAAAEgABAAAACAAAAAAAAAAAAAAAAAAAABcZhAEAAAASAAEAAAAIAAAAAEBAMzMzMzMzAAAAGBmEAQAAAA4AAQAAAAgAAAAA/////wAAABkZhAEAAAAWAAEAAAAIAAAAAAAAAAgAbgBhAG0AZQAAABoZhAEAAAAaAAEAAAAIAAAAAAAAAAAAAAAA//////////8AAAAbGYQBAAAAGgABAAAACAAAAAAAAAAKAAAACgAAABMAAAATAAAAHBmEAQAAABIAAQAAAAgAAAAAAAAAAAAAAAAAAAAdGYQBAAAAEgABAAAACAAAAAAAAAAJAAAAAgAAAB4ZhAEAAAASAAEAAAAIAAAAAP//////////AAAAHxmEAQAAABIAAQAAAAgAAAAAAAAAIQAAABUAAAAgGYQBAAAADgABAAAACAAAAAAAAAAWAAAAIRmEAQAAAA4AAQAAAAgAAAAAAAAACgAAACIZhAEAAAAOAAEAAAAIAAAAAAAAAAUAAAAjGYQBAAAADgABAAAACAAAAAAAAAAFAAAAJBmEAQAAABUAAQAAAAgAAAAAAf//AAAAAP//AAAAAAAlGYQBAAAAFQABAAAACAAAAAAB/////wAAAAAAAAAAACYZhAEAAAA+AAEAAAAIAAAAAAAAAA4AQwBvAHUAcgBpAGUAcv////9AJAAAAAAAAP////8FAAEAMhAAAAEAAAAAAAAAAAAAAAAnGYQBAAAAOgABAAAACAAAAAAAAAAKAEEAcgBpAGEAbP////9AMwAAAAAAAP////8FAAEAMhAAAAEAAAAAAAAAAAAAAAAoGYQBAAAACgABAAAACAAAAAAAAAApGYQBAAAAGgABAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKhmEAQAAABoAAQAAAAgAAAAAQCPMzMzMzM1AAZmZmZmZmgAAACsZhAEAAAAqAAEAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALBmEAQAAACoAAQAAAAgAAAAAQCQzMzMzMzNAJGZmZmZmZkAkmZmZmZmaQCTMzMzMzM0AAAAtGYQBAAAAGgABAAAACAAAAAC/8AAAAAAAAL/wAAAAAAAAAAAALhmEAQAAABoAAQAAAAgAAAAAQECAAAAAAABANeZmZmZmZv////8AAAAyGYQBAAAAJQABAAAAAAAAAAABAAAAMxmEAQAAAAsAAQAAAAgAAAAAAf//////////"));
-            QCOMPARE(data.size(), 1185);
+            QtnPropertySet loadedProperties(nullptr);
 
             {
                 QDataStream s(&data, QIODevice::ReadOnly);
-                s.setVersion(16);
-                QVERIFY(allProperties.load(s));
+                QVERIFY(loadedProperties.load(s));
             }
 
-            QString result;
-            QVERIFY(allProperties.toStr(result));
-
-#ifdef Q_OS_WIN
-            QCOMPARE(result.size(), 1188);
-#else
-            QCOMPARE(result.size(), 1154);
-#endif
+            QString savedString;
+            QString loadedString;
+            QVERIFY(savedProperties.toStr(savedString));
+            QVERIFY(loadedProperties.toStr(loadedString));
+            QCOMPARE(loadedString, savedString);
         }
     }
 }
 
 void TestGeneratedProperty::testJson()
 {
-    QtnPropertySetAllPropertyTypes p;
+    QtnPropertySetAllPropertyTypes savedProperties;
+    QtnPropertySetAllPropertyTypes loadedProperties;
 
-    QJsonObject o;
-    QVERIFY(p.toJson(o));
+    QJsonObject jsonObject;
+    QVERIFY(savedProperties.toJson(jsonObject));
+    QVERIFY(loadedProperties.fromJson(jsonObject));
 
-    QJsonDocument d(o);
-    auto res = d.toJson();
-    QCOMPARE(res.size(), 1674);
-    res = d.toJson(QJsonDocument::Compact);
-    QCOMPARE(res.size(), 979);
-
-    QVERIFY(p.fromJson(o));
+    QString savedString;
+    QString loadedString;
+    QVERIFY(savedProperties.toStr(savedString));
+    QVERIFY(loadedProperties.toStr(loadedString));
+    QCOMPARE(loadedString, savedString);
 }
