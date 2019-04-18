@@ -5,19 +5,14 @@ TEMPLATE = app
 TARGET = QtnPropertyTests
 DESTDIR = $$BIN_DIR
 
-QT -= gui
-QT += script testlib
+QT += testlib
 
 CONFIG -= app_bundle
 CONFIG += console
 
 INCLUDEPATH += ../Core
 LIBS += -L$$LIB_DIR -lQtnPropertyCore
-equals(QMAKE_EXTENSION_STATICLIB, a) {
-    PRE_TARGETDEPS += $$LIB_DIR/libQtnPropertyCore.$$QMAKE_EXTENSION_SHLIB
-} else {
-    PRE_TARGETDEPS += $$LIB_DIR/QtnPropertyCore.$$QMAKE_EXTENSION_SHLIB
-}
+PRE_TARGETDEPS += $$LIB_DIR/$${QMAKE_PREFIX_SHLIB}QtnPropertyCore.$${QMAKE_EXTENSION_SHLIB}
 
 HEADERS += \
     TestEnum.h \
