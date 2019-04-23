@@ -1,5 +1,8 @@
 language: cpp
-compiler: gcc
+
+os:
+- linux
+- osx
 
 addons:
   apt:
@@ -9,15 +12,33 @@ addons:
     - qtscript5-dev
     - flex
     - bison
+  homebrew:
+    packages:
+    - qt5
+    - flex
+    - bison
+
+matrix:
+  include:
+  - os: linux
+  - os: osx
+
+matrix:
+  exclude:
+  - os: linux
+    addons: homebrew
+  - os: osx
+    addons: apt
 
 script:
-- qmake -r
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export PATH="/usr/local/opt/qt/bin:$PATH"; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export PATH="/usr/local/opt/flex/bin:$PATH"; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export PATH="/usr/local/opt/bison/bin:$PATH"; fi
+- qmake
 - make
 - bin/QtnPEG
-- make clean
 - qmake Demo.pro
 - make
-- make clean
 - qmake Tests.pro
 - make
 - bin/QtnPropertyTests
