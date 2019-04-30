@@ -7,6 +7,9 @@ VERSION = 1.1.0
 
 QT += script
 
+# Enable applications to link to the library using rpath.
+macx: QMAKE_LFLAGS_SONAME = -Wl,-install_name,@rpath/
+
 HEADERS += \
     CoreAPI.h\
     Enum.h\

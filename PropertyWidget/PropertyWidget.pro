@@ -7,6 +7,9 @@ VERSION = 1.1.0
 
 QT += widgets
 
+# Enable applications to link to the library using rpath.
+macx: QMAKE_LFLAGS_SONAME = -Wl,-install_name,@rpath/
+
 INCLUDEPATH += ../Core
 LIBS += -L$$LIB_DIR -lQtnPropertyCore
 PRE_TARGETDEPS += $$LIB_DIR/$${QMAKE_PREFIX_SHLIB}QtnPropertyCore.$${QMAKE_EXTENSION_SHLIB}
