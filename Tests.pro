@@ -2,6 +2,7 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     Core \
+    PEG \
     Tests
 
-Tests.depends = Core
+Tests.depends = Core PEG

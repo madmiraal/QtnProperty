@@ -1,11 +1,11 @@
 include(../Config.pri)
 
-TEMPLATE = lib
 TARGET = QtnPropertyCore
+TEMPLATE = lib
 DESTDIR = $$LIB_DIR
 VERSION = 1.1.0
 
-CONFIG -= gui
+QT += script
 
 HEADERS += \
     CoreAPI.h\

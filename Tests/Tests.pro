@@ -1,14 +1,13 @@
 include(../Config.pri)
 include(../PEG.pri)
 
-TEMPLATE = app
 TARGET = QtnPropertyTests
+TEMPLATE = app
 DESTDIR = $$BIN_DIR
 
-QT += testlib
-
+CONFIG += cmdline
 CONFIG -= app_bundle
-CONFIG += console
+QT += script testlib
 
 INCLUDEPATH += ../Core
 LIBS += -L$$LIB_DIR -lQtnPropertyCore

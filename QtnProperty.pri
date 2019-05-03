@@ -1,5 +1,7 @@
 include(Config.pri)
 
+QT += widgets script
+
 INCLUDEPATH += $$PWD/Core
 INCLUDEPATH += $$PWD/PropertyWidget
 

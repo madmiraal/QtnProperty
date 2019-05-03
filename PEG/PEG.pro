@@ -8,6 +8,7 @@ DESTDIR = $$BIN_DIR
 VERSION = 1.1.0
 
 CONFIG += cmdline
+CONFIG -= app_bundle
 QT -= gui
 
 SOURCES += \
