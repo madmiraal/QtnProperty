@@ -11,8 +11,8 @@ QT += widgets
 macx: QMAKE_LFLAGS_SONAME = -Wl,-install_name,@rpath/
 
 INCLUDEPATH += ../Core
-LIBS += -L$$LIB_DIR -lQtnPropertyCore
-PRE_TARGETDEPS += $$LIB_DIR/$${QMAKE_PREFIX_SHLIB}QtnPropertyCore.$${QMAKE_EXTENSION_SHLIB}
+LIBS += -L$$LIB_DIR -lQtnPropertyCore$${LIB_VERSION}
+PRE_TARGETDEPS += $$LIB_DIR/$${QMAKE_PREFIX_SHLIB}QtnPropertyCore$${LIB_VERSION}.$${QMAKE_EXTENSION_SHLIB}
 
 HEADERS += \
     PropertyView.h \

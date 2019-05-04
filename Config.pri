@@ -1,8 +1,6 @@
 CONFIG += c++11
 
 BIN_DIR = $$PWD/bin
-LIB_DIR = $$PWD/lib
-QMAKE_RPATHDIR += ../lib
 
 # Older versions of Qt didn't set QMAKE_EXTENSION_SHLIB in conf files,
 # so using QMAKE_EXTENSION_STATICLIB to determine the correct value.
@@ -12,4 +10,13 @@ isEmpty(QMAKE_EXTENSION_SHLIB) {
     } else {
         QMAKE_EXTENSION_SHLIB = dll
     }
+}
+
+# Specify library variables.
+equals(QMAKE_EXTENSION_SHLIB, "dll") {
+    LIB_VERSION = 1
+    LIB_DIR = $$BIN_DIR
+} else {
+    LIB_DIR = $$PWD/lib
+    QMAKE_RPATHDIR += ../lib
 }
