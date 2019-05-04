@@ -1,0 +1,13 @@
+install:
+- cinst winflexbison3
+
+before_build:
+- set QTDIR=C:\Qt\5.9\mingw53_32
+- set PATH=C:\MinGW\bin;%PATH%;%QTDIR%\bin
+
+build_script:
+- qmake Tests.pro
+- mingw32-make
+
+test_script:
+- bin\QtnPropertyTests
