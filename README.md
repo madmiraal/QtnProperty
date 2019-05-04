@@ -31,7 +31,7 @@ QtnProperty and the PEG Tool are cross-platform compatible, running on Mac, Wind
 **Requirements:**
 
 1. Qt5 Framework and the Qt5 Script module.
-2. The PEG Tool requires Flex 2.5 or later and Bison 2.7 or later. Windows versions can be found [here](http://sourceforge.net/projects/winflexbison/).
+2. The PEG Tool requires Flex 2.5 or later and Bison 3.0 or later. Windows versions can be found [here](http://sourceforge.net/projects/winflexbison/).
 
 **From the Command Line:**
 
