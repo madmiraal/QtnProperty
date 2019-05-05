@@ -9,6 +9,9 @@
 *.dll
 *.dylib
 
+# Qt auto-generates windows .rc files.
+*.rc
+
 # Qt-es
 object_script.*.Release
 object_script.*.Debug
