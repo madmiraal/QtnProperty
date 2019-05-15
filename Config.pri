@@ -16,7 +16,9 @@ isEmpty(QMAKE_EXTENSION_SHLIB) {
 equals(QMAKE_EXTENSION_SHLIB, "dll") {
     LIB_VERSION = 1
     LIB_DIR = $$BIN_DIR
+    DEFINES += QTN_EXPORT=Q_DECL_EXPORT
 } else {
     LIB_DIR = $$PWD/lib
     QMAKE_RPATHDIR += ../lib
+    DEFINES += QTN_EXPORT=
 }

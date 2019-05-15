@@ -2,6 +2,11 @@ include(Config.pri)
 
 QT += widgets script
 
+equals(QMAKE_EXTENSION_SHLIB, "dll") {
+    DEFINES -= QTN_EXPORT=Q_DECL_EXPORT
+    DEFINES += QTN_EXPORT=Q_DECL_IMPORT
+}
+
 INCLUDEPATH += $$PWD/Core
 INCLUDEPATH += $$PWD/PropertyWidget
 

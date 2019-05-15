@@ -9,6 +9,11 @@ CONFIG += cmdline
 CONFIG -= app_bundle
 QT += script testlib
 
+equals(QMAKE_EXTENSION_SHLIB, "dll") {
+    DEFINES -= QTN_EXPORT=Q_DECL_EXPORT
+    DEFINES += QTN_EXPORT=Q_DECL_IMPORT
+}
+
 INCLUDEPATH += ../Core
 LIBS += -L$$LIB_DIR -lQtnPropertyCore$${LIB_VERSION}
 PRE_TARGETDEPS += $$LIB_DIR/$${QMAKE_PREFIX_SHLIB}QtnPropertyCore$${LIB_VERSION}.$${QMAKE_EXTENSION_SHLIB}

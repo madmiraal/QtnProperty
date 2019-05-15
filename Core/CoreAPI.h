@@ -17,6 +17,8 @@
 #ifndef QTN_COREAPI_H
 #define QTN_COREAPI_H
 
-#define QTN_PE_CORE_EXPORT
+#include <QtCore/QtGlobal>
+
+#define QTN_PE_CORE_EXPORT QTN_EXPORT
 
 #endif // QTN_COREAPI_H

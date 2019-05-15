@@ -1,11 +1,12 @@
 #ifndef QTN_PROPERTYWIDGETAPI_H
 #define QTN_PROPERTYWIDGETAPI_H
 
+#include <QtCore/QtGlobal>
 #include <functional>
 
 class QIcon;
 
-#define QTN_PW_EXPORT
+#define QTN_PW_EXPORT QTN_EXPORT
 
 QTN_PW_EXPORT bool initQtnPropertyWidgetLibrary(QIcon* resetIcon = nullptr);
 
