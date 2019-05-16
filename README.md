@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/madmiraal/QtnProperty.svg?branch=master)](https://travis-ci.com/madmiraal/QtnProperty)
+[![Appveyor Build Unknown](https://ci.appveyor.com/api/projects/status/github/madmiraal/qtnproperty?branch=master&svg=true)](https://ci.appveyor.com/project/madmiraal/qtnproperty) [![Travis-CI Build Unknown](https://travis-ci.com/madmiraal/QtnProperty.svg?branch=master)](https://travis-ci.com/madmiraal/QtnProperty)
 
 # QtnProperty
 
@@ -18,13 +18,13 @@ The Qt Property System provides a cross-platform library for managing properties
 * Delegates: Customise the look and feel of properties in the Property Widget.
 * PEG (Property/Enum Generator) Tool: Generate the required source code from QML like files.
 
-QtnProperty and the PEG Tool are cross-platform compatible, running on Mac, Windows and Linux.
+QtnProperty and the PEG Tool are cross-platform compatible, running on Linux, Mac and Windows.
+
+![Linux demo screenshot should appear here.](Docs/img/DemoLinux.png)
 
 ![Mac demo screenshot should appear here.](Docs/img/DemoMac.png)
 
 ![Windows demo screenshot should appear here.](Docs/img/DemoWin.png)
-
-![Linux demo screenshot should appear here.](Docs/img/DemoLinux.png)
 
 ## How to Build and Run the Demo
 
