@@ -1,13 +1,45 @@
-install:
-- cinst winflexbison3
+image:
+- Visual Studio 2015
+- Ubuntu1604
+- Ubuntu1804
 
-before_build:
-- set QTDIR=C:\Qt\5.9\mingw53_32
-- set PATH=C:\MinGW\bin;%PATH%;%QTDIR%\bin
+for:
+-
+  matrix:
+    only:
+     - image: Visual Studio 2015
+  install:
+  - cinst winflexbison3
+  before_build:
+  - set QTDIR=C:\Qt\5.9\mingw53_32
+  - set PATH=C:\MinGW\bin;%PATH%;%QTDIR%\bin
+  build_script:
+  - qmake
+  - mingw32-make
+  - qmake Demo.pro
+  - mingw32-make
+  - qmake Tests.pro
+  - mingw32-make
+  test_script:
+  - bin\QtnPEG
+  - bin\QtnPropertyTests
 
-build_script:
-- qmake Tests.pro
-- mingw32-make
-
-test_script:
-- bin\QtnPropertyTests
+-
+  matrix:
+    only:
+     - image: Ubuntu1604
+     - image: Ubuntu1804
+  install:
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install qtdeclarative5-dev qt5-default qtscript5-dev
+  - sudo apt-get -qq install flex bison
+  build_script:
+  - qmake QtnProperty.pro
+  - make
+  - qmake Demo.pro
+  - make
+  - qmake Tests.pro
+  - make
+  test_script:
+  - bin/QtnPEG
+  - bin/QtnPropertyTests
